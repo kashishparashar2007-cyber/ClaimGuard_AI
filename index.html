@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ClaimGuard AI</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #090414;
+            color: white;
+        }
+
+        header {
+            background: #130820;
+            padding: 20px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #38204d;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #b66cff;
+        }
+
+        nav a {
+            color: #ddd;
+            text-decoration: none;
+            margin-left: 30px;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #d66cff;
+        }
+
+        .hero {
+            min-height: 550px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 70px 10%;
+        }
+
+        .hero-text {
+            max-width: 600px;
+        }
+
+        .hero-text h1 {
+            font-size: 55px;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .hero-text h1 span {
+            color: #c35cff;
+        }
+
+        .hero-text p {
+            color: #bbb;
+            font-size: 18px;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            background: linear-gradient(90deg, #8b35ff, #e642bd);
+            border: none;
+            color: white;
+            padding: 15px 28px;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            opacity: 0.85;
+        }
+
+        .hero-card {
+            width: 360px;
+            background: #170b25;
+            border: 1px solid #5c267d;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 0 40px rgba(160, 60, 255, 0.15);
+        }
+
+        .risk {
+            font-size: 40px;
+            font-weight: bold;
+            color: #ff6363;
+            margin: 15px 0;
+        }
+
+        .issue {
+            background: #24112f;
+            padding: 14px;
+            margin-top: 12px;
+            border-radius: 8px;
+            color: #ddd;
+        }
+
+        .dashboard {
+            padding: 70px 10%;
+            background: #0d0617;
+        }
+
+        .section-title {
+            font-size: 35px;
+            margin-bottom: 35px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            background: #170b25;
+            border: 1px solid #39204b;
+            border-radius: 15px;
+            padding: 25px;
+        }
+
+        .card h3 {
+            color: #aaa;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            font-size: 28px;
+            font-weight: bold;
+            color: #d879ff;
+        }
+
+        .how {
+            padding: 70px 10%;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .step {
+            padding: 25px;
+            background: #170b25;
+            border-radius: 15px;
+            border: 1px solid #39204b;
+        }
+
+        .step-number {
+            color: #e55cff;
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .step h3 {
+            margin-bottom: 10px;
+        }
+
+        .step p {
+            color: #aaa;
+            line-height: 1.5;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #777;
+            border-top: 1px solid #2c1938;
+        }
+
+        @media (max-width: 900px) {
+            .hero {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .cards,
+            .steps {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">CLAIMGUARD AI</div>
+
+    <nav>
+        <a href="#dashboard">Dashboard</a>
+        <a href="#how">How It Works</a>
+        <a href="#">Claims</a>
+        <a href="#">Appeals</a>
+    </nav>
+</header>
+
+
+<section class="hero">
+
+    <div class="hero-text">
+
+        <h1>
+            Catch the Error
+            <span>Before the Claim.</span>
+        </h1>
+
+        <p>
+            AI-powered claim denial prevention for hospitals.
+            ClaimGuard checks insurance claims before submission
+            and identifies potential rejection risks.
+        </p>
+
+        <button class="btn">
+            Analyze a Claim
+        </button>
+
+    </div>
+
+
+    <div class="hero-card">
+
+        <h3>AI CLAIM ANALYSIS</h3>
+
+        <p style="color:#aaa;">
+            Claim #CG-1042
+        </p>
+
+        <div class="risk">
+            82% HIGH RISK
+        </div>
+
+        <div class="issue">
+            🔴 Missing Pre-Authorization
+        </div>
+
+        <div class="issue">
+            🟠 Diagnosis / Code Mismatch
+        </div>
+
+        <div class="issue">
+            🟠 Date Mismatch
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="dashboard" id="dashboard">
+
+    <h2 class="section-title">
+        Revenue Protection Dashboard
+    </h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>CLAIMS CHECKED</h3>
+            <p>248</p>
+        </div>
+
+        <div class="card">
+            <h3>HIGH RISK CLAIMS</h3>
+            <p>18</p>
+        </div>
+
+        <div class="card">
+            <h3>REVENUE AT RISK</h3>
+            <p>₹12.4L</p>
+        </div>
+
+        <div class="card">
+            <h3>REVENUE PROTECTED</h3>
+            <p>₹4.2L</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="how" id="how">
+
+    <h2 class="section-title">
+        How ClaimGuard Works
+    </h2>
+
+    <div class="steps">
+
+        <div class="step">
+            <div class="step-number">01</div>
+            <h3>Upload</h3>
+            <p>
+                Upload discharge summary, hospital bills
+                and insurance policy documents.
+            </p>
+        </div>
+
+        <div class="step">
+            <div class="step-number">02</div>
+            <h3>Understand</h3>
+            <p>
+                AI reads the documents and extracts
+                important claim information.
+            </p>
+        </div>
+
+        <div class="step">
+            <div class="step-number">03</div>
+            <h3>Validate</h3>
+            <p>
+                Rules and AI checks identify missing
+                documents, coding errors and mismatches.
+            </p>
+        </div>
+
+        <div class="step">
+            <div class="step-number">04</div>
+            <h3>Fix & Submit</h3>
+            <p>
+                ClaimGuard provides exact fixes before
+                the claim is submitted.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    ClaimGuard AI • Team Hackers
+
+</footer>
+
+</body>
+</html>
