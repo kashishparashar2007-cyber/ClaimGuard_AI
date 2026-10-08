@@ -7,6 +7,7 @@
     <title>ClaimGuard AI</title>
 
     <style>
+
         * {
             box-sizing: border-box;
             margin: 0;
@@ -14,10 +15,16 @@
             font-family: Arial, sans-serif;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             background: #090414;
             color: white;
         }
+
+        /* HEADER */
 
         header {
             background: #130820;
@@ -26,6 +33,9 @@
             justify-content: space-between;
             align-items: center;
             border-bottom: 1px solid #38204d;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
         .logo {
@@ -45,12 +55,15 @@
             color: #d66cff;
         }
 
+        /* HERO */
+
         .hero {
-            min-height: 550px;
+            min-height: 600px;
             display: flex;
             align-items: center;
             justify-content: space-between;
             padding: 70px 10%;
+            gap: 50px;
         }
 
         .hero-text {
@@ -87,7 +100,10 @@
 
         .btn:hover {
             opacity: 0.85;
+            transform: translateY(-2px);
         }
+
+        /* HERO CARD */
 
         .hero-card {
             width: 360px;
@@ -112,6 +128,8 @@
             border-radius: 8px;
             color: #ddd;
         }
+
+        /* DASHBOARD */
 
         .dashboard {
             padding: 70px 10%;
@@ -148,6 +166,8 @@
             color: #d879ff;
         }
 
+        /* HOW IT WORKS */
+
         .how {
             padding: 70px 10%;
         }
@@ -181,6 +201,155 @@
             line-height: 1.5;
         }
 
+        /* CLAIM ANALYSIS */
+
+        .analysis {
+            padding: 80px 10%;
+            background: #0d0617;
+            display: none;
+        }
+
+        .analysis-container {
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .claim-box {
+            background: #170b25;
+            border: 1px solid #4d2267;
+            border-radius: 18px;
+            padding: 30px;
+            margin-bottom: 25px;
+        }
+
+        .claim-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .claim-id {
+            color: #aaa;
+        }
+
+        .status {
+            background: #421b32;
+            color: #ff7373;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #c35cff;
+            font-size: 18px;
+        }
+
+        .analysis-result {
+            display: none;
+        }
+
+        .risk-box {
+            background: #24112f;
+            border: 1px solid #71306d;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+
+        .risk-number {
+            font-size: 45px;
+            font-weight: bold;
+            color: #ff6363;
+        }
+
+        .risk-label {
+            color: #ff8585;
+            margin-top: 5px;
+        }
+
+        .error-list {
+            margin-top: 20px;
+        }
+
+        .error-item {
+            background: #24112f;
+            border-left: 4px solid #ff6363;
+            padding: 18px;
+            margin-bottom: 12px;
+            border-radius: 8px;
+        }
+
+        .error-item h3 {
+            margin-bottom: 7px;
+        }
+
+        .error-item p {
+            color: #aaa;
+            line-height: 1.5;
+        }
+
+        .fix {
+            color: #d879ff;
+            margin-top: 8px;
+        }
+
+        .revenue {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .revenue-card {
+            background: #170b25;
+            border: 1px solid #39204b;
+            border-radius: 15px;
+            padding: 25px;
+        }
+
+        .revenue-card h3 {
+            color: #aaa;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .revenue-card p {
+            font-size: 30px;
+            font-weight: bold;
+            color: #d879ff;
+        }
+
+        .success-box {
+            display: none;
+            background: #152d25;
+            border: 1px solid #2d7658;
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 25px;
+        }
+
+        .success-box h2 {
+            color: #65e0a7;
+            margin-bottom: 10px;
+        }
+
+        .success-box p {
+            color: #bbb;
+            line-height: 1.6;
+        }
+
+        .center {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        /* FOOTER */
+
         footer {
             text-align: center;
             padding: 30px;
@@ -188,51 +357,121 @@
             border-top: 1px solid #2c1938;
         }
 
+        /* RESPONSIVE */
+
         @media (max-width: 900px) {
+
+            header {
+                padding: 20px;
+            }
+
+            nav {
+                display: none;
+            }
+
             .hero {
                 flex-direction: column;
-                gap: 40px;
+                padding: 60px 7%;
+            }
+
+            .hero-text h1 {
+                font-size: 42px;
+            }
+
+            .hero-card {
+                width: 100%;
             }
 
             .cards,
             .steps {
                 grid-template-columns: 1fr 1fr;
             }
+
+            .revenue {
+                grid-template-columns: 1fr;
+            }
         }
+
+        @media (max-width: 600px) {
+
+            .cards,
+            .steps {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
     </style>
+
 </head>
 
 <body>
 
+
+<!-- HEADER -->
+
 <header>
-    <div class="logo">CLAIMGUARD AI</div>
+
+    <div class="logo">
+        CLAIMGUARD AI
+    </div>
 
     <nav>
-        <a href="#dashboard">Dashboard</a>
-        <a href="#how">How It Works</a>
-        <a href="#">Claims</a>
-        <a href="#">Appeals</a>
+
+        <a href="#dashboard">
+            Dashboard
+        </a>
+
+        <a href="#how">
+            How It Works
+        </a>
+
+        <a href="#analysis">
+            Claims
+        </a>
+
+        <a href="#analysis">
+            Appeals
+        </a>
+
     </nav>
+
 </header>
 
+
+<!-- HERO -->
 
 <section class="hero">
 
     <div class="hero-text">
 
         <h1>
+
             Catch the Error
-            <span>Before the Claim.</span>
+
+            <span>
+                Before the Claim.
+            </span>
+
         </h1>
 
+
         <p>
+
             AI-powered claim denial prevention for hospitals.
             ClaimGuard checks insurance claims before submission
             and identifies potential rejection risks.
+
         </p>
 
-        <button class="btn">
+
+        <button
+            class="btn"
+            onclick="showAnalysis()"
+        >
+
             Analyze a Claim
+
         </button>
 
     </div>
@@ -240,23 +479,29 @@
 
     <div class="hero-card">
 
-        <h3>AI CLAIM ANALYSIS</h3>
+        <h3>
+            AI CLAIM ANALYSIS
+        </h3>
 
         <p style="color:#aaa;">
             Claim #CG-1042
         </p>
 
+
         <div class="risk">
             82% HIGH RISK
         </div>
+
 
         <div class="issue">
             🔴 Missing Pre-Authorization
         </div>
 
+
         <div class="issue">
             🟠 Diagnosis / Code Mismatch
         </div>
+
 
         <div class="issue">
             🟠 Date Mismatch
@@ -267,87 +512,429 @@
 </section>
 
 
-<section class="dashboard" id="dashboard">
+<!-- DASHBOARD -->
+
+<section
+    class="dashboard"
+    id="dashboard"
+>
 
     <h2 class="section-title">
         Revenue Protection Dashboard
     </h2>
 
+
     <div class="cards">
 
-        <div class="card">
-            <h3>CLAIMS CHECKED</h3>
-            <p>248</p>
-        </div>
 
         <div class="card">
-            <h3>HIGH RISK CLAIMS</h3>
-            <p>18</p>
+
+            <h3>
+                CLAIMS CHECKED
+            </h3>
+
+            <p>
+                248
+            </p>
+
         </div>
 
-        <div class="card">
-            <h3>REVENUE AT RISK</h3>
-            <p>₹12.4L</p>
-        </div>
 
         <div class="card">
-            <h3>REVENUE PROTECTED</h3>
-            <p>₹4.2L</p>
+
+            <h3>
+                HIGH RISK CLAIMS
+            </h3>
+
+            <p>
+                18
+            </p>
+
         </div>
+
+
+        <div class="card">
+
+            <h3>
+                REVENUE AT RISK
+            </h3>
+
+            <p>
+                ₹12.4L
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>
+                REVENUE PROTECTED
+            </h3>
+
+            <p>
+                ₹4.2L
+            </p>
+
+        </div>
+
 
     </div>
 
 </section>
 
 
-<section class="how" id="how">
+<!-- HOW IT WORKS -->
+
+<section
+    class="how"
+    id="how"
+>
 
     <h2 class="section-title">
         How ClaimGuard Works
     </h2>
 
+
     <div class="steps">
 
+
         <div class="step">
-            <div class="step-number">01</div>
-            <h3>Upload</h3>
+
+            <div class="step-number">
+                01
+            </div>
+
+            <h3>
+                Upload
+            </h3>
+
             <p>
                 Upload discharge summary, hospital bills
                 and insurance policy documents.
             </p>
+
         </div>
 
+
         <div class="step">
-            <div class="step-number">02</div>
-            <h3>Understand</h3>
+
+            <div class="step-number">
+                02
+            </div>
+
+            <h3>
+                Understand
+            </h3>
+
             <p>
                 AI reads the documents and extracts
                 important claim information.
             </p>
+
         </div>
 
+
         <div class="step">
-            <div class="step-number">03</div>
-            <h3>Validate</h3>
+
+            <div class="step-number">
+                03
+            </div>
+
+            <h3>
+                Validate
+            </h3>
+
             <p>
                 Rules and AI checks identify missing
                 documents, coding errors and mismatches.
             </p>
+
         </div>
 
+
         <div class="step">
-            <div class="step-number">04</div>
-            <h3>Fix & Submit</h3>
+
+            <div class="step-number">
+                04
+            </div>
+
+            <h3>
+                Fix & Submit
+            </h3>
+
             <p>
                 ClaimGuard provides exact fixes before
                 the claim is submitted.
             </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- CLAIM ANALYSIS -->
+
+<section
+    class="analysis"
+    id="analysis"
+>
+
+    <div class="analysis-container">
+
+        <h2 class="section-title">
+            AI Claim Analysis
+        </h2>
+
+
+        <!-- CLAIM -->
+
+        <div class="claim-box">
+
+            <div class="claim-header">
+
+                <div>
+
+                    <h2>
+                        Demo Claim
+                    </h2>
+
+                    <p class="claim-id">
+                        Claim ID: CG-1042
+                    </p>
+
+                </div>
+
+
+                <div class="status">
+                    NEEDS REVIEW
+                </div>
+
+            </div>
+
+
+            <p style="color:#aaa; line-height:1.7;">
+
+                Synthetic hospital claim used for demonstration.
+                ClaimGuard checks the claim before submission
+                to identify potential denial risks.
+
+            </p>
+
+
+            <br>
+
+
+            <button
+                class="btn"
+                onclick="runAnalysis()"
+            >
+
+                Run AI Analysis
+
+            </button>
+
+        </div>
+
+
+        <!-- LOADING -->
+
+        <div
+            class="claim-box loading"
+            id="loading"
+        >
+
+            🔍 Analyzing claim documents...
+
+        </div>
+
+
+        <!-- RESULT -->
+
+        <div
+            class="analysis-result"
+            id="result"
+        >
+
+
+            <div class="risk-box">
+
+                <p style="color:#aaa;">
+                    CLAIM DENIAL RISK
+                </p>
+
+
+                <div class="risk-number">
+                    82%
+                </div>
+
+
+                <div class="risk-label">
+                    HIGH RISK
+                </div>
+
+
+                <p
+                    style="color:#aaa; margin-top:15px;"
+                >
+
+                    ClaimGuard detected 3 issues
+                    that may cause claim rejection.
+
+                </p>
+
+            </div>
+
+
+            <h2 style="margin-bottom:20px;">
+                Detected Issues
+            </h2>
+
+
+            <div class="error-list">
+
+
+                <div class="error-item">
+
+                    <h3>
+                        🔴 Missing Pre-Authorization
+                    </h3>
+
+                    <p>
+                        Required authorization document
+                        was not found in the claim package.
+                    </p>
+
+                    <p class="fix">
+                        Fix: Upload the required
+                        pre-authorization document.
+                    </p>
+
+                </div>
+
+
+                <div class="error-item">
+
+                    <h3>
+                        🟠 Diagnosis / Code Mismatch
+                    </h3>
+
+                    <p>
+                        The diagnosis information does not
+                        fully match the procedure code.
+                    </p>
+
+                    <p class="fix">
+                        Fix: Review the diagnosis and
+                        procedure coding before submission.
+                    </p>
+
+                </div>
+
+
+                <div class="error-item">
+
+                    <h3>
+                        🟠 Date Mismatch
+                    </h3>
+
+                    <p>
+                        Treatment and billing dates contain
+                        an inconsistency.
+                    </p>
+
+                    <p class="fix">
+                        Fix: Verify treatment and billing dates.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- REVENUE -->
+
+            <div class="revenue">
+
+
+                <div class="revenue-card">
+
+                    <h3>
+                        REVENUE AT RISK
+                    </h3>
+
+                    <p>
+                        ₹4.2L
+                    </p>
+
+                </div>
+
+
+                <div class="revenue-card">
+
+                    <h3>
+                        POTENTIAL VALUE PROTECTED
+                    </h3>
+
+                    <p>
+                        ₹4.2L
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="center">
+
+                <button
+                    class="btn"
+                    onclick="fixClaim()"
+                >
+
+                    Re-check After Fixes
+
+                </button>
+
+            </div>
+
+
+            <!-- SUCCESS -->
+
+            <div
+                class="success-box"
+                id="success"
+            >
+
+                <h2>
+                    ✓ Claim Ready for Submission
+                </h2>
+
+                <p>
+
+                    The identified issues have been marked
+                    as resolved in this demo. The claim risk
+                    is now low and the estimated ₹4.2L value
+                    is protected.
+
+                </p>
+
+            </div>
+
+
         </div>
 
     </div>
 
 </section>
 
+
+<!-- FOOTER -->
 
 <footer>
 
@@ -355,5 +942,86 @@
 
 </footer>
 
+
+
+<script>
+
+    /* SHOW ANALYSIS SECTION */
+
+    function showAnalysis() {
+
+        const analysis =
+            document.getElementById("analysis");
+
+        analysis.style.display = "block";
+
+        analysis.scrollIntoView({
+            behavior: "smooth"
+        });
+
+    }
+
+
+    /* RUN DEMO AI ANALYSIS */
+
+    function runAnalysis() {
+
+        const loading =
+            document.getElementById("loading");
+
+        const result =
+            document.getElementById("result");
+
+
+        loading.style.display = "block";
+
+        result.style.display = "none";
+
+
+        setTimeout(function() {
+
+            loading.style.display = "none";
+
+            result.style.display = "block";
+
+        }, 1800);
+
+    }
+
+
+    /* FIX CLAIM */
+
+    function fixClaim() {
+
+        const success =
+            document.getElementById("success");
+
+        success.style.display = "block";
+
+        success.scrollIntoView({
+            behavior: "smooth"
+        });
+
+    }
+
+</script>
+
+
 </body>
 </html>
+
+            
+
+            
+            
+
+        
+
+
+
+
+
+
+
+
+
